@@ -12,7 +12,7 @@ pids
 node_modules
 # data
 # db
-config/secure
+secure
 # src/config/secure
 # micros/mc-document/config/secure
 # packages/backup
@@ -28,7 +28,6 @@ config/secure
 # public
 # dist
 
+testData.go
 project.md
 # apps/auth/lib/test.ts
-testData.go
-testTemplates.go

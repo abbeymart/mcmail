@@ -5,6 +5,7 @@
 package mcmail
 
 import (
+	"github.com/abbeymart/mcmail/secure"
 	"github.com/abbeymart/mctest"
 	"strings"
 	"testing"
@@ -29,11 +30,11 @@ func TestResMessage(t *testing.T) {
 
 	// email server information/instance
 	mailer := EmailConfigType{
-		Username:  sendinblue.Username,
-		Password:  sendinblue.Password,
-		Port:      sendinblue.Port,
-		ServerUrl: sendinblue.ServerUrl,
-		MsgFrom:   sendinblue.MsgFrom,
+		Username:  secure.Sendinblue.Username,
+		Password:  secure.Sendinblue.Password,
+		Port:      secure.Sendinblue.Port,
+		ServerUrl: secure.Sendinblue.ServerUrl,
+		MsgFrom:   secure.Sendinblue.MsgFrom,
 	}
 
 	responseMessage := "Email message successfully sent"
