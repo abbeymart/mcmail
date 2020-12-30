@@ -22,8 +22,6 @@ import (
 // MIME attachments (see the mime/multipart package), or other mail functionality.
 // Higher-level packages exist outside of the standard library
 func (mailer EmailConfigType) SendTextEmail(recipients []string, message string) mcresponse.ResponseMessage {
-	// TODO: validate toEmailAddress as slice of strings
-
 	// Authenticate email server
 	auth := smtp.PlainAuth("", mailer.Username, mailer.Password, mailer.ServerUrl)
 
