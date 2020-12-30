@@ -5,12 +5,13 @@
 package mcmail
 
 type EmailConfigType struct {
-	Username  string
-	Password  string
-	Port      int
-	ServerUrl string
-	MsgFrom   string
-	ApiKey    string
+	Username  string `json:"username"`
+	Password  string `json:"password"`
+	Port      int    `json:"port"`
+	ServerUrl string `json:"serverUrl"`
+	MsgFrom   string `json:"msgFrom"`
+	ApiKey    string `json:"apiKey"`
+	Tls       string `json:"tls"`
 }
 
 type EmailPropsType map[string]interface{}

@@ -13,8 +13,8 @@ import (
 
 func TestResMessage(t *testing.T) {
 	// test-data
-	to := []string{"abbeya1@yahoo.com", "abiakindele@gmail.com"}
-	//msg := `"To: abbeya1@yahoo.com\r\n" +
+	to := secure.ToEmail
+	//msg := `"To: example@yahoo.com\r\n" +
 	//	"Subject: discount Gophers!\r\n" +
 	//	"\r\n" +
 	//	"This is the email body.\r\n Enjoy it!!! +" +
@@ -22,10 +22,10 @@ func TestResMessage(t *testing.T) {
 	//	" \r\n" +
 	//	"\r\n" +
 	//	" With Regards,\r\n" +
-	//	"mConnect.biz Support Team\r\n"`
+	//	"mac.com Support Team\r\n"`
 
 	//msgText := "Test message - it's a wonderful world!!!"
-	msgHtml := "Hello <b>Guest</b> and <i>Welcome to mConnect</i>!"
+	msgHtml := "Hello <b>Guest</b> and <i>Welcome to mac</i>!"
 	subject :=  "mConnect Go Universal!!!"
 
 	// email server information/instance
