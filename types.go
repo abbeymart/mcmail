@@ -7,9 +7,10 @@ package mcmail
 type EmailConfigType struct {
 	Username  string
 	Password  string
-	Port      string
+	Port      int
 	ServerUrl string
 	MsgFrom   string
+	ApiKey    string
 }
 
 type EmailPropsType map[string]interface{}
