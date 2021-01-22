@@ -69,12 +69,15 @@ func (mailer EmailConfigType) SendEmail(recipients []string, message string, sub
 	}
 
 	// Settings for SMTP server
+	//fmt.Println("before-email-dialer")
 	d := gomail.NewDialer(mailer.ServerUrl, mailer.Port, mailer.Username, mailer.Password)
 
+	//fmt.Println("before-email-tls-config")
 	// needed for invalid SSL/TLS certificate | should be set to false in PROD.
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	// Now send E-Mail
+	//fmt.Println("before-email-dial-and-send")
 	if err := d.DialAndSend(m); err != nil {
 		fmt.Println(err)
 		return mcresponse.GetResMessage("sendmailError", mcresponse.ResponseMessageOptions{

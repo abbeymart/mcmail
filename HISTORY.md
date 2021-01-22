@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.3.0
+
+- Release date: January 22, 2021
+- Refactored test-data and test-cases
+
 ## Version 0.2.0
 
 - Release date: December 31, 2020
