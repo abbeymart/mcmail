@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.4.0
+
+- Release date: Oct 15, 2021
+- Refactored InsecureSkipVerify as a config-setting
+
 ## Version 0.3.0
 
 - Release date: January 22, 2021

@@ -20,7 +20,7 @@ import (
 // but not including it in the msg headers.
 // The SendMail function and the net/smtp package are low-level mechanisms and provide no support for DKIM signing,
 // MIME attachments (see the mime/multipart package), or other mail functionality.
-// Higher-level packages exist outside of the standard library
+// Higher-level packages exist outside the standard library
 func (mailer EmailConfigType) SendTextEmail(recipients []string, message string) mcresponse.ResponseMessage {
 	// Authenticate email server
 	auth := smtp.PlainAuth("", mailer.Username, mailer.Password, mailer.ServerUrl)
@@ -74,7 +74,7 @@ func (mailer EmailConfigType) SendEmail(recipients []string, message string, sub
 
 	//fmt.Println("before-email-tls-config")
 	// needed for invalid SSL/TLS certificate | should be set to false in PROD.
-	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
+	d.TLSConfig = &tls.Config{InsecureSkipVerify: mailer.InsecureSkipVerify}
 
 	// Now send E-Mail
 	//fmt.Println("before-email-dial-and-send")

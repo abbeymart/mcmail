@@ -25,16 +25,17 @@ func TestResMessage(t *testing.T) {
 	//	"mac.com Support Team\r\n"`
 
 	//msgText := "Test message - it's a wonderful world!!!"
-	msgHtml := "Hello <b>Guest</b> and <i>Welcome to mac</i>!"
-	subject :=  "mConnect Go Universal!!!"
+	msgHtml := "Hello <b>Guest</b>:<br/><br/><hr/> <h3>Welcome to mConnect Marketplace</h3>!"
+	subject := "mConnect Go Universal!!!"
 
 	// email server information/instance
 	mailer := EmailConfigType{
-		Username:  secure.EmailUser,
-		Password:  secure.EmailPass,
-		Port:      secure.EmailPort,
-		ServerUrl: secure.EmailServer,
-		MsgFrom:   secure.EmailFrom,
+		Username:           secure.EmailUser,
+		Password:           secure.EmailPass,
+		Port:               secure.EmailPort,
+		ServerUrl:          secure.EmailServer,
+		MsgFrom:            secure.EmailFrom,
+		InsecureSkipVerify: true,
 	}
 
 	responseMessage := "Email message successfully sent"
@@ -44,10 +45,7 @@ func TestResMessage(t *testing.T) {
 		TestFunc: func() {
 			res := mailer.SendEmail(secure.ToEmail, msgHtml, subject, "html")
 			mctest.AssertEquals(t, res.Code, "success", "response-code should be: success")
-			mctest.AssertEquals(t, strings.Contains(res.Message, "Email message successfully sent"), true, "response-message should includes/contains"+responseMessage)
-			// gomail: could not send email 1: 554 Message rejected:
-			// Sending paused for this account. For more information, please check the inbox
-			// of the email address associated with your AWS account.
+			mctest.AssertEquals(t, strings.Contains(res.Message, responseMessage), true, "response-message should includes/contains"+responseMessage)
 		},
 	})
 	mctest.PostTestResult()
