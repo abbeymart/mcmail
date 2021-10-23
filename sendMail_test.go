@@ -5,7 +5,6 @@
 package mcmail
 
 import (
-	"github.com/abbeymart/mcmail/secure"
 	"github.com/abbeymart/mctest"
 	"strings"
 	"testing"
@@ -30,11 +29,11 @@ func TestResMessage(t *testing.T) {
 
 	// email server information/instance
 	mailer := EmailConfigType{
-		Username:           secure.EmailUser,
-		Password:           secure.EmailPass,
-		Port:               secure.EmailPort,
-		ServerUrl:          secure.EmailServer,
-		MsgFrom:            secure.EmailFrom,
+		Username:           EmailUser,
+		Password:           EmailPass,
+		Port:               EmailPort,
+		ServerUrl:          EmailServer,
+		MsgFrom:            EmailFrom,
 		InsecureSkipVerify: true,
 	}
 
@@ -43,7 +42,7 @@ func TestResMessage(t *testing.T) {
 	mctest.McTest(mctest.OptionValue{
 		Name: "should return success code for sending email message",
 		TestFunc: func() {
-			res := mailer.SendEmail(secure.ToEmail, msgHtml, subject, "html")
+			res := mailer.SendEmail(ToEmail, msgHtml, subject, "html")
 			mctest.AssertEquals(t, res.Code, "success", "response-code should be: success")
 			mctest.AssertEquals(t, strings.Contains(res.Message, responseMessage), true, "response-message should includes/contains"+responseMessage)
 		},

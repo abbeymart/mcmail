@@ -1,5 +1,11 @@
 # Historical logs
 
+## Version 0.4.1
+
+- Release date: Oct 23, 2021
+- Resolve reference mod-error
+
+
 ## Version 0.4.0
 
 - Release date: Oct 15, 2021
