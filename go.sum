@@ -1,7 +1,13 @@
 github.com/abbeymart/mcresponse v0.4.1 h1:GAekylL40+rQwVlCZkmBUCKzvzCTOokpdN1c9QDmxOA=
 github.com/abbeymart/mcresponse v0.4.1/go.mod h1:cbaoGCkmRrO5oc220/9xdMZhdLhvvKYvG+rI4lc3Ik4=
+github.com/abbeymart/mcresponse v0.8.0 h1:XkrXwAZOyIoyQJ4VgWOhHlrkVrjvhvdRGJ3+o/osCSg=
+github.com/abbeymart/mcresponse v0.8.0/go.mod h1:cbaoGCkmRrO5oc220/9xdMZhdLhvvKYvG+rI4lc3Ik4=
+github.com/abbeymart/mcresponse v0.9.1 h1:6OdrP8KtcMNb7ZlG9G+vCu+YoGLuQG/NwQpfuox7zLc=
+github.com/abbeymart/mcresponse v0.9.1/go.mod h1:3MWqzs2k2pnZO7PlBNJdR9r1Eck323LC65SJDUJH5zQ=
 github.com/abbeymart/mctest v0.5.3 h1:i2yUlvVbye43H7cmnguoYmal6azAvJVPUNollnSgmnA=
 github.com/abbeymart/mctest v0.5.3/go.mod h1:KOFNuhcaJZq1lEDMXTA1qywNywH6rZ1EjPOFxpg2eBw=
+github.com/abbeymart/mctest v0.6.0 h1:mDjGiQJv7n8EDl+K48erJG3hlNl7uefEScNNFK/k/8E=
+github.com/abbeymart/mctest v0.6.0/go.mod h1:KOFNuhcaJZq1lEDMXTA1qywNywH6rZ1EjPOFxpg2eBw=
 gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc h1:2gGKlE2+asNV9m7xrywl36YYNnBG5ZQ0r/BOOxqPpmk=
 gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc/go.mod h1:m7x9LTH6d71AHyAX77c9yqWCCa3UKHcVEj9y7hAtKDk=
 gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df h1:n7WqCuqOuCbNr617RXOY0AWRXxgwEyPp2z+p0+hgMuE=
