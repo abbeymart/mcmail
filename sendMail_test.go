@@ -5,35 +5,30 @@
 package mcmail
 
 import (
+	"fmt"
+	"github.com/abbeymart/mcmail/config"
 	"github.com/abbeymart/mctest"
 	"strings"
 	"testing"
 )
 
 func TestResMessage(t *testing.T) {
-	// test-data
-	//to := secure.ToEmail
-	//msg := `"To: example@yahoo.com\r\n" +
-	//	"Subject: discount Gophers!\r\n" +
-	//	"\r\n" +
-	//	"This is the email body.\r\n Enjoy it!!! +" +
-	//	" \r\n" +
-	//	" \r\n" +
-	//	"\r\n" +
-	//	" With Regards,\r\n" +
-	//	"mac.com Support Team\r\n"`
+	// encrypt appConfig
+	// export MCAPP_SECURE_KEY=32-bytes-alphanumeric-value | must match the encryption secureKey 32-bytes-alphanumeric-value
+	config.LoadConfig()
 
 	//msgText := "Test message - it's a wonderful world!!!"
-	msgHtml := "Hello <b>Guest</b>:<br/><br/><hr/> <h3>Welcome to mConnect Marketplace</h3>!"
-	subject := "mConnect Go Universal!!!"
+	msgHtml := "Hello <b>Guest</b>:<br/><br/><hr/> <h3>Welcome to mConnect Marketplace!</h3><br/><br/><hr/>"
+	msgHtml += fmt.Sprintf("%v", config.AppConfig.AppContact)
+	subject := "mConnect Go Universal - TESTING!!!"
 
 	// email server information/instance
 	mailer := EmailConfigType{
-		Username:           EmailUser,
-		Password:           EmailPass,
-		Port:               EmailPort,
-		ServerUrl:          EmailServer,
-		MsgFrom:            EmailFrom,
+		Username:           config.AppConfig.EmailService.EmailUsername,
+		Password:           config.AppConfig.EmailService.EmailPassword,
+		Port:               config.AppConfig.EmailService.EmailPort,
+		ServerUrl:          config.AppConfig.EmailService.EmailServerUrl,
+		MsgFrom:            config.AppConfig.EmailService.EmailMsgFrom,
 		InsecureSkipVerify: true,
 	}
 
@@ -42,7 +37,7 @@ func TestResMessage(t *testing.T) {
 	mctest.McTest(mctest.OptionValue{
 		Name: "should return success code for sending email message",
 		TestFunc: func() {
-			res := mailer.SendEmail(ToEmail, msgHtml, subject, "html")
+			res := mailer.SendEmail(config.ToEmail, msgHtml, subject, "html")
 			mctest.AssertEquals(t, res.Code, "success", "response-code should be: success")
 			mctest.AssertEquals(t, strings.Contains(res.Message, responseMessage), true, "response-message should includes/contains"+responseMessage)
 		},

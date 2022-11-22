@@ -14,6 +14,7 @@ node_modules
 # db
 secure
 testData.go
+config
 # src/config/secure
 # micros/mc-document/config/secure
 # packages/backup
@@ -29,6 +30,5 @@ testData.go
 # public
 # dist
 
-testData.go
 project.md
 # apps/auth/lib/test.ts
