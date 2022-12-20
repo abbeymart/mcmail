@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.6.1
+
+- Release date: Dec 20, 2022
+- Refactored to tls.Config to include server-name-v0.6.1
+
 ## Version 0.6.0
 
 - Release date: Nov 22, 2022

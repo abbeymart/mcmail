@@ -74,7 +74,10 @@ func (mailer EmailConfigType) SendEmail(recipients []string, message string, sub
 
 	//fmt.Println("before-email-tls-config")
 	// needed for invalid SSL/TLS certificate | should be set to false in PROD.
-	d.TLSConfig = &tls.Config{InsecureSkipVerify: mailer.InsecureSkipVerify}
+	d.TLSConfig = &tls.Config{
+		ServerName:         mailer.ServerUrl,
+		InsecureSkipVerify: mailer.InsecureSkipVerify,
+	}
 
 	// Now send E-Mail
 	//fmt.Println("before-email-dial-and-send")
