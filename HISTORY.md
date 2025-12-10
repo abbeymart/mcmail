@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.6.2
+
+- Release date: Dec 09, 2025
+- updated-mctest0.7.1-mcresponse0.9.7-v0.6.2
+
 ## Version 0.6.1
 
 - Release date: Dec 20, 2022

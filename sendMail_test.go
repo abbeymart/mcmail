@@ -6,10 +6,11 @@ package mcmail
 
 import (
 	"fmt"
-	"github.com/abbeymart/mcmail/config"
-	"github.com/abbeymart/mctest"
 	"strings"
 	"testing"
+
+	"github.com/abbeymart/mcmail/config"
+	"github.com/abbeymart/mctest"
 )
 
 func TestResMessage(t *testing.T) {
@@ -34,7 +35,7 @@ func TestResMessage(t *testing.T) {
 
 	responseMessage := "Email message successfully sent"
 
-	mctest.McTest(mctest.OptionValue{
+	mctest.McTest(mctest.ParamsType{
 		Name: "should return success code for sending email message",
 		TestFunc: func() {
 			res := mailer.SendEmail(config.ToEmail, msgHtml, subject, "html")

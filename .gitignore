@@ -13,9 +13,9 @@ node_modules
 # data
 # db
 secure
-testData.go
+#testData.go
 config
-# src/config/secure
+config/secure
 # micros/mc-document/config/secure
 # packages/backup
 # config/constants.json
