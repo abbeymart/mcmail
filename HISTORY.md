@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.7.0
+
+- Release date: June-06-2026
+- updated-deps-mctest0.8.0-and-mcresponse0.10.0-refactored-sendMail-func-rewrite-testcases-v0.7.0
+
 ## Version 0.6.2
 
 - Release date: Dec 09, 2025

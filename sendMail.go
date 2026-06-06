@@ -1,4 +1,4 @@
-// @Author: abbeymart | Abi Akindele | @Created: 2020-12-29 | @Updated: 2020-12-29
+// @Author: abbeymart | Abi Akindele | @Created: 2020-12-29 | @Updated: 2020-12-29, 2026-06-06
 // @Company: mConnect.biz | @License: MIT
 // @Description: send-mail function
 
@@ -7,45 +7,12 @@ package mcmail
 import (
 	"crypto/tls"
 	"fmt"
+
 	"github.com/abbeymart/mcresponse"
 	"gopkg.in/gomail.v2"
-	"net/smtp"
 )
 
-// SendTextEmail method sends simple email messages to multiple recipients
-// The message parameter should be an RFC 822-style email with headers first, a blank line, and then the message body.
-// The lines of msg should be CRLF terminated.
-// The msg headers should usually include fields such as "From", "To", "Subject", and "Cc".
-// Sending "Bcc" messages is accomplished by including an email address in the to-parameter
-// but not including it in the msg headers.
-// The SendMail function and the net/smtp package are low-level mechanisms and provide no support for DKIM signing,
-// MIME attachments (see the mime/multipart package), or other mail functionality.
-// Higher-level packages exist outside the standard library
-func (mailer EmailConfigType) SendTextEmail(recipients []string, message string) mcresponse.ResponseMessage {
-	// Authenticate email server
-	auth := smtp.PlainAuth("", mailer.Username, mailer.Password, mailer.ServerUrl)
-
-	fmt.Printf("auth-response: %v\n\n", auth)
-	// Send email to toAddress(es)
-	err := smtp.SendMail(mailer.ServerUrl+":"+fmt.Sprintf("%v", mailer.Port), auth, mailer.MsgFrom, recipients, []byte(message))
-
-	// Handle email error, if any
-	if err != nil {
-		fmt.Printf("Mail error: %v", err.Error())
-		return mcresponse.GetResMessage("sendmailError", mcresponse.ResponseMessageOptions{
-			Message: "Unable to send email message: " + err.Error(),
-			Value:   nil,
-		})
-	}
-
-	// Handle successful email delivery
-	return mcresponse.GetResMessage("success", mcresponse.ResponseMessageOptions{
-		Message: "Email message successfully sent",
-		Value:   nil,
-	})
-}
-
-// SendEmail sends text and html messages, attachment etc.
+// SendEmail sends text and HTML messages, attachment etc.
 func (mailer EmailConfigType) SendEmail(recipients []string, message string, subject string, emailType string) mcresponse.ResponseMessage {
 	m := gomail.NewMessage()
 
@@ -58,7 +25,7 @@ func (mailer EmailConfigType) SendEmail(recipients []string, message string, sub
 	// Set E-Mail subject
 	m.SetHeader("Subject", subject)
 
-	// Set E-Mail body. You can set plain text or html with text/html
+	// Set E-Mail body. You can set plain text or HTML with text/html
 	// m.SetBody("text/html", "Hello <b>Bob</b> and <i>Cora</i>!")
 	// m.Attach("/home/Alex/lolcat.jpg") | TODO: implement attachment feature
 	switch emailType {
@@ -69,10 +36,8 @@ func (mailer EmailConfigType) SendEmail(recipients []string, message string, sub
 	}
 
 	// Settings for SMTP server
-	//fmt.Println("before-email-dialer")
 	d := gomail.NewDialer(mailer.ServerUrl, mailer.Port, mailer.Username, mailer.Password)
 
-	//fmt.Println("before-email-tls-config")
 	// needed for invalid SSL/TLS certificate | should be set to false in PROD.
 	d.TLSConfig = &tls.Config{
 		ServerName:         mailer.ServerUrl,
